@@ -1,0 +1,6 @@
+.env*
+!.env.dist
+
+# local docker volumes
+db_data
+caddy_certs

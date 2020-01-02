@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  api:
+    image: dernacktehalloumi/api
+    restart: unless-stoppped
+    env_file: .env
+    depends_on:
+      - caddy
+    networks:
+      - app-network
+  caddy:
+    image: dernacktehalloumi/caddy
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./caddy_certs:/root/.caddy
+    ports:
+      - 443:443
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

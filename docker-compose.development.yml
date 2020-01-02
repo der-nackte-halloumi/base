@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      context: ./api
+    restart: always
+    depends_on:
+      - caddy
+      - db
+  caddy:
+    build:
+      context: ./caddy
+      args:
+        build_env: development
+    restart: always
+  db:
+    image: postgres:12
+    restart: always
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+      POSTGRES_USER: "${DATABASE_USER}"
+      POSTGRES_DB: "${DATABASE_NAME}"
+    networks:
+      - app-network
