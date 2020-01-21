@@ -9,6 +9,9 @@ before_install:
 
 install: skip
 
+script:
+  - echo "run some tests here"
+
 git:
   submodules: false
 
