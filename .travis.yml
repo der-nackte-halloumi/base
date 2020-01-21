@@ -1,16 +1,17 @@
 dist: bionic
+
 services:
   - docker
-install: skip
-git:
-  submodules: false
+
 before_install:
   - openssl aes-256-cbc -K $encrypted_2b880785f91d_key -iv $encrypted_2b880785f91d_iv
-    -in der-nackte-halloumi-base-travis.enc -out ~\/.ssh/der-nackte-halloumi-base-travis
-    -d
-  # - openssl aes-256-cbc -K $encrypted_2b880785f91d_key -iv $encrypted_2b880785f91d_iv
-  #   -in der-nackte-halloumi-base-travis.enc -out ~/.ssh/der-nackte-halloumi-base-travis
-  #   -d
+    -in der-nackte-halloumi-base-travis.enc -out der-nackte-halloumi-base-travis -d
+
+install: skip
+
+git:
+  submodules: false
+
 deploy:
   provider: script
   script:
