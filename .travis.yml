@@ -20,6 +20,7 @@ git:
   submodules: false
 
 deploy:
+  skip_cleanup: true
   provider: script
   script:
     - bash scripts/deploy.sh
