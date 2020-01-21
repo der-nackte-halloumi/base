@@ -1,5 +1,7 @@
 # base
 
+[![Build Status](https://travis-ci.com/der-nackte-halloumi/base.svg?branch=master)](https://travis-ci.com/der-nackte-halloumi/base)
+
 ## Setup
 
 Pull the entire codebase including all submodules at once:

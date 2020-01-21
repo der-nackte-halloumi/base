@@ -1,0 +1,23 @@
+dist: bionic
+
+services:
+  - docker
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_2b880785f91d_key -iv $encrypted_2b880785f91d_iv
+    -in der-nackte-halloumi-base-travis.enc -out der-nackte-halloumi-base-travis -d
+
+install: skip
+
+script:
+  - echo "run some tests here"
+
+git:
+  submodules: false
+
+deploy:
+  provider: script
+  script:
+    - bash scripts/deploy.sh
+  on:
+    branch: master
