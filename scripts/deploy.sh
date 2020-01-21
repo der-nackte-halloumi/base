@@ -2,6 +2,8 @@
 
 set -eo pipefail
 
+chmod 400 der-nackte-halloumi-base-travis
+
 echo $SERVER_PUBLIC_KEY >> $HOME/.ssh/known_hosts
 
 # copy compose file to server
