@@ -3,8 +3,8 @@ services:
   - docker
 install: skip
 
-deploy:
-  provider: script
+git:
+  submodules: false
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_2b880785f91d_key -iv $encrypted_2b880785f91d_iv -in der-nackte-halloumi-base-travis.enc -out ~\/.ssh/der-nackte-halloumi-base-travis -d
@@ -15,4 +15,3 @@ deploy:
     - bash scripts/deploy.sh
   on:
     branch: master
-  
