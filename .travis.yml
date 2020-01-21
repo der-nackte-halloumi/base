@@ -3,6 +3,10 @@ dist: bionic
 services:
   - docker
 
+branches:
+  only:
+    - master
+
 before_install:
   - openssl aes-256-cbc -K $encrypted_2b880785f91d_key -iv $encrypted_2b880785f91d_iv
     -in der-nackte-halloumi-base-travis.enc -out der-nackte-halloumi-base-travis -d
