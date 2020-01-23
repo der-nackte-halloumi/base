@@ -4,7 +4,6 @@ services:
   api:
     build:
       context: ./api
-    restart: always
     depends_on:
       - caddy
       - db
@@ -13,7 +12,6 @@ services:
       context: ./caddy
       args:
         build_env: development
-    restart: always
   db:
     image: postgres:12
     restart: always

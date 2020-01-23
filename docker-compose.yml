@@ -3,7 +3,7 @@ version: "3.7"
 services:
   api:
     image: dernacktehalloumi/api
-    restart: unless-stoppped
+    restart: always
     env_file: .env
     depends_on:
       - caddy
@@ -11,7 +11,7 @@ services:
       - app-network
   caddy:
     image: dernacktehalloumi/caddy
-    restart: unless-stopped
+    restart: always
     env_file: .env
     volumes:
       - ./caddy_certs:/root/.caddy
