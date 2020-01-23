@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   api:
-    image: dernacktehalloumi/api
+    image: dernacktehalloumi/api:$API_IMAGE_TAG
     restart: always
     env_file: .env
     depends_on:
@@ -10,7 +10,7 @@ services:
     networks:
       - app-network
   caddy:
-    image: dernacktehalloumi/caddy
+    image: dernacktehalloumi/caddy:$CADDY_IMAGE_TAG
     restart: always
     env_file: .env
     volumes:
