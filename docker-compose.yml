@@ -7,6 +7,7 @@ services:
     env_file: .env
     depends_on:
       - caddy
+      - migrations
     networks:
       - app-network
   caddy:
@@ -18,6 +19,22 @@ services:
     ports:
       - 80:80
       - 443:443
+    networks:
+      - app-network
+  migrations:
+    image: dernacktehalloumi/migrations:$MIGRATIONS_IMAGE_TAG
+    container_name: migrations
+    restart: on-failure
+    env_file: .env
+    command:
+      [
+        "-path",
+        "/migrations",
+        "-database",
+        "postgres://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/$DATABASE_NAME",
+        "-verbose",
+        "up",
+      ]
     networks:
       - app-network
 
