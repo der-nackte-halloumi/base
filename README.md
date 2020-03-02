@@ -6,7 +6,7 @@
 
 Pull the entire codebase including all submodules at once:
 
-    git clone --recurse-submodules git@github.com:der-nackte-halloumi/base.git
+    git clone --recurse-submodules https://github.com/der-nackte-halloumi/base.git
 
 Copy the `.env.dist`-file to `.env` and replace the values according to your desired local configuration.
 
