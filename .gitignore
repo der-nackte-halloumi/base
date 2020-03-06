@@ -1,6 +1,8 @@
 .DS_Store
 
 .env*
+!.env.sample
+.env
 !.env.dist
 
 # local docker volumes
