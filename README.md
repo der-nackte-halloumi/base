@@ -8,7 +8,7 @@
 
 At least **MacOS High Sierra** is required to run [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/).
 
-Where there is no support for the latest *Docker* release, the [Docker Toolbox](https://docs.docker.com/toolbox/overview/) might be helpful - but this is not covered by the following instructions.
+Where there is no support for the latest _Docker_ release, the [Docker Toolbox](https://docs.docker.com/toolbox/overview/) might be helpful - but this is not covered by the following instructions.
 
 ## Setup
 
@@ -16,7 +16,7 @@ Pull the entire codebase including all submodules at once:
 
     git clone --recurse-submodules https://github.com/der-nackte-halloumi/base.git
 
-Copy the `.env.dist`-file to `.env` and replace the values according to your desired local configuration.
+Copy the `.env.sample`-file to `.env` and replace the values according to your desired local configuration.
 
 You can now run all services in a development mode with docker-compose:
 
@@ -30,4 +30,3 @@ You can now run all services in a development mode with docker-compose:
 Setup your hostfile for local development:
 
     sudo sh -c 'echo "127.0.0.1  api.unpackaged.test" >> /etc/hosts'
-
