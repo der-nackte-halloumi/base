@@ -14,6 +14,19 @@ services:
       args:
         build_env: development
 
+  server:
+    image: postgrest/postgrest
+    ports:
+      - "3000:3000"
+    environment:
+      PGRST_DB_URI: "postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}"
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: ${DATABASE_USER}
+    depends_on:
+      - db
+    networks:
+      - app-network
+
   db:
     image: postgres:12
     restart: always
